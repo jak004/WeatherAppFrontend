@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A responsive weather app powered by Open-Meteo.">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Weather Now</title>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="Weather Now home"><img src="./assets/images/logo.svg" alt=""><span>Weather Now</span></a>
+      <div class="units-wrap">
+        <button class="units-btn" id="units-btn" type="button" aria-expanded="false" aria-controls="units-menu"><img class="units-icon" src="./assets/images/icon-units.svg" alt=""><span>Units</span><img class="chevron" src="./assets/images/icon-dropdown.svg" alt=""></button>
+        <div class="units-menu" id="units-menu" hidden>
+          <fieldset>
+            <legend>Temperature</legend>
+            <label class="unit-option"><span>Celsius (°C)</span><input type="radio" name="unit" value="metric" checked></label>
+            <label class="unit-option"><span>Fahrenheit (°F)</span><input type="radio" name="unit" value="imperial"></label>
+          </fieldset>
+          <fieldset>
+            <legend>Wind Speed</legend>
+            <label class="unit-option"><span>km/h</span><input type="radio" name="unit" value="metric"></label>
+            <label class="unit-option"><span>mph</span><input type="radio" name="unit" value="imperial"></label>
+          </fieldset>
+          <fieldset>
+            <legend>Precipitation</legend>
+            <label class="unit-option"><span>Millimeters (mm)</span><input type="radio" name="unit" value="metric"></label>
+            <label class="unit-option"><span>Inches (in)</span><input type="radio" name="unit" value="imperial"></label>
+          </fieldset>
+        </div>
+      </div>
+    </header>
+
+    <h1 class="hero-heading">How’s the sky looking today?</h1>
+
+    <form class="search-form" id="search-form" role="search">
+      <div class="search-box"><img class="search-icon" src="./assets/images/icon-search.svg" alt=""><input class="search-input" id="search-input" type="search" autocomplete="off" placeholder="Search for a place..." aria-label="Search for a place"></div>
+      <button class="search-btn" id="search-btn" type="submit">Search</button>
+    </form>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+
+    <div id="weather-content"></div>
+
+  </main>
+
+  <div class="loading-overlay" id="loading" hidden><div class="loader"><div class="spinner" aria-hidden="true"></div><span>Loading weather...</span></div></div>
+  <script src="./app.js" defer></script>
+</body>
+</html>
